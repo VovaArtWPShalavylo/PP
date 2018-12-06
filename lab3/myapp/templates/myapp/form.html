@@ -1,0 +1,42 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<div class="container form-group">
+  <br />
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>Add A New Entry!</h1>
+    </div>
+    <div class="col-lg-6">
+      <button onclick="window.location='{% url 'calendar' %}'"type="button" class="btn btn-primary">Go Back</button>
+    </div>
+  </div>
+  <form method="POST">
+    {% csrf_token %}
+    <!--{% for field in form %}-->
+      <!--{{ field.errors }}-->
+      <!--<label>{{ field.label }}</label>-->
+      <!--<input placeholder="{{ field.label }}" name="{{ field.name }}" class="form-control" />-->
+    <!--{% endfor %}-->
+      <!--<label for="participants">Participants:</label>-->
+      <!--<select placeholder="participants" name="participants" class="form-control" >-->
+               <!--{% for choice in form.participants.choices %}-->
+               <!--<option>{{choice}} </option>-->
+               <!--{{choice}}-->
+           <!--{% endfor %}-->
+            <!--</select>-->
+    <!--<label for="participants">Participants:</label>-->
+    {{ form.as_p }}
+    <!--<label>"***"</label>-->
+    <!--{% for value in form.participants.queryset  %}-->
+    <!--<label>"***"</label>-->
+    <!--<div class="checkbox">-->
+        <!--<input  placeholder="participants" name="{{ form.participants.name }}" type="checkbox" value="{{ value }}">-->
+        <!--<label>{{ value }}</label>-->
+     <!--</div>-->
+     <!--{% endfor %}-->
+    <br />
+    <button onclick="window.location='{% url 'calendar' %}'" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock %}
